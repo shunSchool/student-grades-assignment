@@ -87,12 +87,18 @@ function addRandomGrade() {
 function removeLastGrade() {
   // Remove the last grade.
   outputEl.innerHTML = "Remove the last grade";
-  grades.splice(0, grades.length);
+  grades.pop();
 }
 
 function countBelow50() {
   // Count how many grades are below 50.  Output the result.
-  outputEl.innerHTML = "6";
+  let count = 0;
+  for (let i = 0; i < grades.length; i++){
+    if (grades[i] < 50) {
+      count++;
+    }
+  }
+  outputEl.innerHTML = "Grades below 50 = " + count;
 }
 
 function lowGradesTo50() {
