@@ -10,6 +10,7 @@ let menuEl = document.getElementById("menu");
 let grades = [60, 70, 45, 20, 40, 90, 100, 30, 45, 75, 40, 80];
 let maxGrade = 100; // grade values should be b/t 0 and max
 
+
 // Display Data
 drawArray();
 
@@ -69,7 +70,7 @@ function firstTo40() {
 function lastTo50() {
   // Set the grade of the last student to 50.
   outputEl.innerHTML = "Last grade to 50";
-  grades[11] = 50;
+  grades[grades.length - 1] = 50
 }
 
 function randomTo100() {
@@ -104,11 +105,23 @@ function countBelow50() {
 function lowGradesTo50() {
   // Change all grades that are below 50 to be equal to 50.
   outputEl.innerHTML = "Change low grades to 50";
+  for(let i = 0; i < grades.length; i++) {
+    if (grades[i] < 50) {
+      grades[i] = 50
+    }
+  }
 }
 
 function increaseGradesBy10() {
   // Increase each grade by 10%.
   outputEl.innerHTML = "Increase all grades by 10%";
+  for(let i = 0; i < grades.length; i++){
+    grades[i] = grades[i] + 10
+    if (grades[i] > 100) {
+      grades[i] = 100;
+    }
+    
+  }
 }
 
 function decreaseGradesBy10() {
