@@ -8,8 +8,7 @@ let menuEl = document.getElementById("menu");
 
 // Global Variable
 let grades = [60, 70, 45, 20, 40, 90, 100, 30, 45, 75, 40, 80];
-let maxGrade = 100; // grade values should be b/t 0 and max
-
+let maxGrade = 100; // grade values should be b/t 0 and maxs
 
 // Display Data
 drawArray();
@@ -127,9 +126,20 @@ function increaseGradesBy10() {
 function decreaseGradesBy10() {
   // Decrease each grade by 10%.
   outputEl.innerHTML = "Decrease all grades by 10%";
+  for(let i = 0; i < grades.length; i++) {
+    grades[i] = grades[i] - 10
+  }
 }
 
 function removeGradesBelow50() {
   // Remove all grades that are below 50.
   outputEl.innerHTML = "Remove grades below 50";
+  for(let f = 0; f < grades.length; f++)
+  for(let i = 0; i < grades.length; i++) {
+    if (grades[i] < 50) {
+      grades.splice(i, 1);
+    } else if(grades[f] < 50) {
+      grades.splice(f, 1)
+    }
+  }
 }
